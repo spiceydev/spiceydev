@@ -1,0 +1,57 @@
+{
+    "npmScope": "spiceydev",
+    "affected": {
+        "defaultBase": "main"
+    },
+    "implicitDependencies": {
+        "package.json": {
+            "dependencies": "*",
+            "devDependencies": "*"
+        },
+        ".eslintrc.json": "*"
+    },
+    "tasksRunnerOptions": {
+        "default": {
+            "runner": "@nrwl/workspace/tasks-runners/default",
+            "options": {
+                "cacheableOperations": ["build", "lint", "test", "e2e"]
+            }
+        }
+    },
+    "targetDependencies": {
+        "build": [
+            {
+                "target": "build",
+                "projects": "dependencies"
+            }
+        ]
+    },
+    "projects": {
+        "ngshop": {
+            "tags": []
+        },
+        "admin": {
+            "tags": []
+        },
+        "admin-e2e": {
+            "tags": [],
+            "implicitDependencies": ["admin"]
+        },
+        "ngshop-e2e": {
+            "tags": [],
+            "implicitDependencies": ["ngshop"]
+        },
+        "orders": {
+            "tags": []
+        },
+        "products": {
+            "tags": []
+        },
+        "ui": {
+            "tags": []
+        },
+        "users": {
+            "tags": []
+        }
+    }
+}

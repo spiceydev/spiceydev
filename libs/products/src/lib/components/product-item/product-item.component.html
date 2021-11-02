@@ -1,0 +1,15 @@
+<div class="product-item" *ngIf="product">
+  <div class="product-item-wrapper">
+    <img [routerLink]="'/products/' + product.id" [src]="product.image" class="image" alt="" />
+    <h4 class="name">{{ product.name }}</h4>
+    <h5 class="price" *ngIf="product.discount === 0">{{ product.price | currency }}</h5>
+    <div class="grid" *ngIf="product.discount > 0">
+      <h5 class="col-6 price">{{ product.price - (product.price * (product.discount/100) )| currency
+        }}</h5>
+      <h5 class="col-6 discount-price">{{ product.price | currency
+        }}</h5>
+    </div>
+    <p-button styleClass="mt-3 add-to-cart" label="Add to cart" icon="pi pi-shopping-cart"
+      (onClick)="addProductToCart()"></p-button>
+  </div>
+</div>
